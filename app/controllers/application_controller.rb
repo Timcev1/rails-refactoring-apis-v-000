@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user
       client_id = ENV['GITHUB_CLIENT']
-      redirect_uri = CGI.escape("http://159.203.80.114:30001/auth")
+      redirect_uri = CGI.escape("http://localhost:30001/auth")
       github_url = "http://github.com/login/oauth/authorize?client_id=#{client_id}&redirect_uri=#{redirect_uri}&scope=public_repo"
       redirect_to github_url if !logged_in?
     end
